@@ -1,11 +1,12 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function ScannerScreen() {
+export default function AudioLog() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Catalogo</Text>
+            <Text style={styles.title}>Bitacora</Text>
             <Text style={styles.subtitle}>
-                Bienvenido!!!
+                Registro de los productos
             </Text>
         </View>
     );

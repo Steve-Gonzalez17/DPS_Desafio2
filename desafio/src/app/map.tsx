@@ -1,11 +1,12 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function ScannerScreen() {
+export default function Map() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Catalogo</Text>
+            <Text style={styles.title}>Mapa de recepciones</Text>
             <Text style={styles.subtitle}>
-                Bienvenido!!!
+                Aquí se mostrarán las ubicaciones de las mercancías recibidas.            
             </Text>
         </View>
     );

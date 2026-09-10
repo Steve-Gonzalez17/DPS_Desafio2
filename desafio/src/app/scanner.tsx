@@ -1,11 +1,12 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function ScannerScreen() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Catalogo</Text>
+            <Text style={styles.title}>Escáner</Text>
             <Text style={styles.subtitle}>
-                Bienvenido!!!
+                Escanea el código QR o de barras del producto.
             </Text>
         </View>
     );
