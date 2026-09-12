@@ -15,7 +15,6 @@ export function LocationMap({ entries }: { entries: AuditEntry[] }) {
 
   const first = entries[0].location;
 
-  // Para android usando  Leaflet + OpenStreetMap por medio del webview
   if (Platform.OS === "android") {
     return <AndroidWebMap entries={entries} center={first} />;
   }
@@ -31,7 +30,6 @@ export function LocationMap({ entries }: { entries: AuditEntry[] }) {
           latitudeDelta: 0.1,
           longitudeDelta: 0.1,
         }}>
-        {/* OPENSTREETMAP */}
         {entries.map((entry) => (
           <Marker
             key={entry.id}
