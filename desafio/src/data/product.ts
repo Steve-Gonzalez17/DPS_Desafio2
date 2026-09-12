@@ -145,4 +145,13 @@ export const products: Product[] = [
         expectedStock: 16,
         unitPrice: 40.0,
     },
+    {
+        id: "17",
+        title: "Desodorante Axe",
+        category: "Salud",
+        barcode: "75076252",
+        imageUrl: "https://lacentraldeabastos.com.mx/wp-content/uploads/2026/01/transparent-Photoroom-2026-03-11T132016.473.webp",
+        expectedStock: 2,
+        unitPrice: 3.15,
+    },
 ];

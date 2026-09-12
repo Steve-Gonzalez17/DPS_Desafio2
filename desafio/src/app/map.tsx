@@ -1,48 +1,14 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import MapView, { UrlTile } from "react-native-maps";
+import { StyleSheet, SafeAreaView } from "react-native";
+import { LocationMap } from "@/components/LocationMap";
+import { useAudit } from "@/context/AudioContext";
 
-type Entry = {
-    id: string | number;
-    latitude: number;
-    longitude: number;
-    title?: string;
-};
-
-type LocationMapProps = {
-    entries: Entry[];
-};
-
-export default function LocationMap({
-    entries,
-}: LocationMapProps) {
-    return (
-        <View style={styles.container}>
-            <MapView
-                style={styles.map}
-                initialRegion={{
-                    latitude: 13.6929,
-                    longitude: -89.2182,
-                    latitudeDelta: 0.1,
-                    longitudeDelta: 0.1,
-                }}
-            >
-                <UrlTile
-                    urlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    maximumZ={19}
-                    tileSize={256}
-                />
-            </MapView>
-        </View>
-    );
+export default function MapScreen() {
+    const {entries} = useAudit();
+    return <SafeAreaView style={styles.page}> <LocationMap entries={entries} /> </SafeAreaView>;
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-
-    map: {
-        flex: 1,
-    },
+    page: {
+        flex:1
+    }
 });
