@@ -1,13 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import MapView, { UrlTile } from "react-native-maps";
 
-export default function Map() {
+type Entry = {
+    id: string | number;
+    latitude: number;
+    longitude: number;
+    title?: string;
+};
+
+type LocationMapProps = {
+    entries: Entry[];
+};
+
+export default function LocationMap({
+    entries,
+}: LocationMapProps) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Mapa de recepciones</Text>
-            <Text style={styles.subtitle}>
-                Aquí se mostrarán las ubicaciones de las mercancías recibidas.            
-            </Text>
+            <MapView
+                style={styles.map}
+                initialRegion={{
+                    latitude: 13.6929,
+                    longitude: -89.2182,
+                    latitudeDelta: 0.1,
+                    longitudeDelta: 0.1,
+                }}
+            >
+                <UrlTile
+                    urlTemplate="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    maximumZ={19}
+                    tileSize={256}
+                />
+            </MapView>
         </View>
     );
 }
@@ -15,20 +40,9 @@ export default function Map() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-        backgroundColor: '#F8FAFC',
     },
-    title: {
-        fontSize: 28,
-        fontWeight: '700',
-        color: '#1E293B',
-        marginBottom: 8,
-    },
-    subtitle: {
-        fontSize: 16,
-        color: '#64748B',
-        textAlign: 'center',
+
+    map: {
+        flex: 1,
     },
 });
