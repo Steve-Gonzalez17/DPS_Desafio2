@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 import { AuditEntry } from "@/types/AudioEntry";
+import { auditEntries } from "@/data/auditSeed";
 
 interface AuditContextType {
     entries: AuditEntry[];
@@ -10,7 +11,7 @@ interface AuditContextType {
 const AuditContext = createContext<AuditContextType | undefined>(undefined);
 
 export function AuditProvider({ children }: { children: React.ReactNode }) {
-    const [entries, setEntries] = useState<AuditEntry[]>([]);
+    const [entries, setEntries] = useState<AuditEntry[]>(auditEntries);
 
     const addEntry = (entry: AuditEntry) => {
         setEntries((currentEntries) => [entry, ...currentEntries]);
